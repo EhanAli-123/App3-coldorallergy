@@ -22,6 +22,7 @@ I intend to create an app that can give a diagnosis based on 5 questions and com
 Known Issues:
 In the US, an average adult suffers a cold 2-4 times a year leading to about a billion cold cases a year in the US alone. On the other hand, there are approximately 100 million individuals that suffer from various allergies.
 The misdiagnosis of allergies for seasonal colds may lead to someone ignoring their allergy for an extended period of time that may lead to health issues down the line.
+No known issues with code.
 	
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
@@ -39,10 +40,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <script>
         var allergy_count = 0;
         var cold_count = 0;
-
+        <!-- My variables to count user inputs on whether the presenting symptoms line up with either colds or allergies --> 
 
         function allergyAdd(){
-            allergy_count = allergy_count + 1;
+            allergy_count = allergy_count + 1; 
 		
 
         }
@@ -52,10 +53,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         }
 
 	function showResults(){
-         var aPercent = Math.round((allergy_count/6) * 100)
-	 var cPercent = Math.round((cold_count/6) * 100)
-         var resultText = document.getElementById("userResults")
-         resultText.innerHTML = "Probability it is allergies = " + aPercent + "<br> Probability it is a cold = " + cPercent
+         var aPercent = Math.round((allergy_count/6) * 100)  <!-- Calculates allergy count and divides by total questions and rounds to the nearest percent for simplicity -->
+	 var cPercent = Math.round((cold_count/6) * 100)  <!-- Calculates cold count and divides by total questions and rounds to the nearest percent for simplicity -->
+         var resultText = document.getElementById("userResults") <!-- Instantiates a variable that stores userResults which is created with the next line -->
+         resultText.innerHTML = "Probability it is allergies = " + aPercent + "%" + "<br> Probability it is a cold = " + cPercent + "%" <!-- Stores percentages into html text to display upon user click -->
 	}
 
   </script>
@@ -97,95 +98,118 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
-
+	
+<!-- My first question with the template provided for page and text-->
+<!-- This question if yes indicates towards allergies -->	
 <div class="page" id="one">
 	<div id="header" class="w3-container w3-flat-carrot">
-		<h1>Question 1</h1>
+		<h1>Question 1</h1> 
 	</div>
 	
-    	<div id="content" class="w3-container">
-         <p>Are your eyes watery or itchy?</p>  
-	 <a href="#two" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes</a> 
-	 <a href="#two" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No</a> 	
+    	<div id="content" class="w3-container"> 
+         <p>Are your eyes watery or itchy?</p>  <!-- This question if yes indicates towards allergies -->
+	 <a href="#two" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes</a> <!-- Adds +1 to allergy count if yes -->
+	 <a href="#two" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No</a> 	<!-- Adds +1 to cold count if no -->
     	</div>
 </div>
+<!-- html div notes to close the page -->
 
+<!-- My second question with the template provided for page and text-->
+<!-- This question if yes indicates towards a cold -->	
 <div class="page" id="two">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 2</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
-	<p>Do you have a fever?</p>
-	<a href="#three" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> Yes</a> 
-	<a href="#three" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> No</a> 
+	<p>Do you have a fever?</p> <!-- This question if yes indicates towards a cold -->
+	<a href="#three" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> Yes</a> <!-- Adds +1 to cold count if yes -->
+	<a href="#three" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> No</a> <!-- Adds +1 to allergy count if no -->
 	</div>
 </div>	
-
+<!-- html div notes to close the page -->
+	
+<!-- My third question with the template provided for page and text-->
+<!-- This question if yes indicates towards a cold -->	
 <div class="page" id="three">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 3</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
-	<p>Do you have a sore throat?</p>
-	<a href="#four" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> Yes</a> 
-	<a href="#four" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> No</a> 
+	<p>Do you have a sore throat?</p> <!-- This question if yes indicates towards a cold-->
+	<a href="#four" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> Yes</a> <!-- Adds +1 to cold count if yes -->
+	<a href="#four" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> No</a> <!-- Adds +1 to allergy count if no -->
 	</div>
 </div>
+<!-- html div notes to close the page -->
 
+<!-- My fourth question with the template provided for page and text-->
+<!-- This question if yes indicates towards allergies -->	
 <div class="page" id="four">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 4</h1>
 	</div>
 	
     	<div id="content" class="w3-container">
-         <p>Are your symptoms seasonal or chronic?</p>  
-	 <a href="#five" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes</a> 
-	 <a href="#five" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No</a> 	
+         <p>Are your symptoms seasonal or chronic?</p>  <!-- This question if yes indicates towards allergies -->
+	 <a href="#five" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes</a> <!-- Adds +1 to allergy count if yes -->
+	 <a href="#five" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No</a> 	<!-- Adds +1 to cold count if no -->
     	</div>
 </div>
+<!-- html div notes to close the page -->
 
+<!-- This is my additional question for indicating for allergies -->
+<!-- My fifth question with the template provided for page and text-->
+<!-- This question if yes indicates towards allergies -->	
 <div class="page" id="five">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 5</h1>
 	</div>
 	
     	<div id="content" class="w3-container">
-         <p>Have these symptoms been persisting for more than 2 weeks?</p>  
-	 <a href="#six" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes</a> 
-	 <a href="#six" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No</a> 	
+         <p>Have these symptoms been persisting for more than 2 weeks?</p>  <!-- This question if yes indicates towards allergies -->
+	 <a href="#six" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes</a> <!-- Adds +1 to allergy count if yes -->
+	 <a href="#six" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No</a> <!-- Adds +1 to cold count if no -->
     	</div>
 </div>	
+<!-- html div notes to close the page -->
 
+<!-- This is my additional question for indicating for a cold -->
+<!-- My sixth question with the template provided for page and text-->
+<!-- This question if yes indicates towards a cold -->	
 <div class="page" id="six">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 6</h1>
 	</div>
 	
     	<div id="content" class="w3-container">
-         <p>Are you experiencing body aches?</p>  
-	 <a href="#seven" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> Yes</a> 
-	 <a href="#seven" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> No</a> 	
+         <p>Are you experiencing body aches?</p>  <!-- This question if yes indicates towards a cold -->
+	 <a href="#seven" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> Yes</a> <!-- Adds +1 to cold count if yes -->
+	 <a href="#seven" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> No</a> <!-- Adds +1 to allergy count if no -->
     	</div>
-</div>	
+</div>
+<!-- html div notes to close the page -->
 
+<!-- Closing page to show user the survey is over-->
+<!-- Same html template used for previous pages-->
 <div class="page" id="seven">
 	<div id="header" class="w3-container w3-flat-carrot">
-		<h1>Results</h1>
+		<h1>Results!</h1>
 	</div>
 	
     	<div id="content" class="w3-container">
          <p>You have reached the end of the survey!</p>
-	 <p>Click below for your results.</p>  
-	 <a class="w3-btn w3-green w3-round" onclick="showResults();"> Display Results </a>
-	<p id="userResults" ></p>
+	 <p>Click below for your results.</p>  <!-- Closing remarks to user -->
+	 <a class="w3-btn w3-green w3-round" onclick="showResults();"> Display Results </a>  <!-- made button to access the userResults variable I set up in the script-->
+	<p id="userResults" ></p> <!-- Accesses results with click -->
     	</div>
 </div>	
+<!-- html div notes to close my final page!!! -->
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
-
+<!-- Footer template --> 
 </body>
 </html>
