@@ -7,7 +7,7 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
+Ehan Ali
  
 Further Information:
 http://cns.utexas.edu/fri
@@ -50,6 +50,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         function coldAdd(){
             cold_count = cold_count + 1;
         }
+
+	function showResults(){
+         var aPercent = (allergy_count/6) * 100
+	 var cPercent = (cold_count/6) * 100
+         var resultText = document.getElementById("userResults")
+         resultText.innerHTML = "Probability it is allergies =" + aPercent + "<br> Probability it is a cold =" + cPercent
+	}
 
   </script>
 
@@ -171,7 +178,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     	<div id="content" class="w3-container">
          <p>You have reached the end of the survey!</p>
 	 <p>Click below for your results.</p>  
-	<a onclick="displayResults(); class="w3-btn w3-green w3-round"> Display Results </a> 	
+	<a onclick="showResults(); class="w3-btn w3-green w3-round"> Display Results </a> 
+	<p id="userResults" ></p>
     	</div>
 </div>	
 
